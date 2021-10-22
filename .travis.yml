@@ -7,7 +7,7 @@ services:
 
 # Pre-testing installs
 install:
-  - npm i
+  - echo "nothing needs to be installed"
 
 # Scripts to be run such as tests
 before_script:
@@ -17,7 +17,7 @@ script:
   - npm run build
   - docker --version # print the version for logging
   - docker build -t udagram-api-feed .
-  - docker tag udagram-api-feed kariman/udagram-api-feed::${TRAVIS_COMMIT::8}
+  - docker tag udagram-api-feed kariman/udagram-api-feed:${TRAVIS_COMMIT::8}
 
 # Tasks to perform after the process is successful. Formatting the Docker username and password as below enables you to programmatically log in without having the password exposed in logs.
 after_success:
